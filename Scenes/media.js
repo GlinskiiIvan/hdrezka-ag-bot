@@ -1,7 +1,6 @@
 const { Markup, Composer, Scenes } = require('telegraf');
 const axios = require('axios');
 const cheerio = require('cheerio');
-const request = require('request');
 
 // const fs = require('fs-extra');
 
