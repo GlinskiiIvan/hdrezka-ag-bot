@@ -1,6 +1,8 @@
 const { Markup, Composer, Scenes } = require('telegraf');
 const axios = require('axios');
 const cheerio = require('cheerio');
+const request = require('request');
+
 // const fs = require('fs-extra');
 
 const link = 'https://rezka.ag';
@@ -10,15 +12,10 @@ let start;
 let end;
 
 const getHTML = async (url) => {
-  /* const httpClient = axios.create();
-  httpClient.defaults.timeout = 500; */
-  const { data } = await axios.post(url, { 
-    proxy: { 
-      host: '182.53.206.138', 
-      port: '8080' 
-    },
+
+  const { data } = await axios.get(url, {         
     headers: { 
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 YaBrowser/21.6.4.787 Yowser/2.5 Safari/537.36' 
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 YaBrowser/21.6.4.787 Yowser/2.5 Safari/537.36' 
     }});
   return cheerio.load(data);
 };
